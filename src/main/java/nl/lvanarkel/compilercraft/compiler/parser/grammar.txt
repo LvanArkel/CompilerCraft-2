@@ -1,0 +1,31 @@
+Program := stmt*
+
+stmt := IF expr THEN BROPEN stmt* BRCLOSE
+            (ELSE BROPEN stmt* BRCLOSE)? #IfStatement
+      | var assign expr #AssignStatement
+      | INTVAR INT | BOOLVAR BOOL #Variable declaration
+      | WHILE expr THEN BROPEN stmt* BRCLOSE #Whilestatement
+
+expr  := term expr'
+expr' := ADD term expr'
+       | SUB term expr'
+       | OR term expr'
+       | epsilon
+
+term  := comp term'
+term' := MULT comp term'
+       | DIV comp term'
+       | AND comp term'
+       | epsilon
+
+comp := value comp'
+comp':= EQ value comp'
+      | NEQ value comp'
+      | (LT|LE|GE|GT) value comp'
+      | epsilon
+
+value := NOT value
+       | PAROPEN expr PARCLOSE
+       | INT
+       | BOOL
+       | VAR

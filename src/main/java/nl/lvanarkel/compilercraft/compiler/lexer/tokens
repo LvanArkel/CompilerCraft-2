@@ -1,0 +1,42 @@
+List of tokens and how blocks are tokenized
+
+Variables and values:
+Chest: Integer value, with the contents of the chest being the value.
+Fence gate: Boolean value, open is true, closed is false
+Sign: Variable
+    Block under=chest: Integer variable declaration, with value of chest= initial value
+    Block under=fence gate: Boolean variable declaration, with value of fence gate=initial value
+    Otherwise: Variable usage
+
+Operators:
+Crafting table: Assign (=)
+Iron ore: Addition (+)
+Coal ore: Subtraction (-)
+Gold ore: Multiplication (*)
+Lapis ore: Division (/)
+... block: The assign operator e.g. Iron block = (+=)
+Redstone repeater:
+    delay=1: Smaller than (<)
+    delay=2: Smaller than or equal (<=)
+    delay=3: Greater than or equal (>=)
+    delay=4: Greater than (>)
+Comparator:
+    Torch down: Equals (==)
+    Torch up: Not Equals (!=)
+#TODO: NOT token
+Poppy: Logical AND (&&)
+Dandelion: Logical OR (||)
+Rose bush: Logical AND assign (&=)
+Sunflower: Logical OR assign (|=)
+
+Control flow:
+Observer: If
+Jack 'o lantarn: Else
+Redstone lamp: Out
+
+
+Brackets:
+For all brackets, if there is an air block before, it is a closing bracket.
+If there is an air block afterwards, it is an opening bracket
+    Glass pane: Parentheses ()
+    Iron bars: Braces {}
